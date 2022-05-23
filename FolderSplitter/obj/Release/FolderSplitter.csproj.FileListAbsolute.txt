@@ -1,0 +1,7 @@
+C:\Build\FolderSplitter\FolderSplitter\bin\Release\FolderSplitter.exe.config
+C:\Build\FolderSplitter\FolderSplitter\bin\Release\FolderSplitter.exe
+C:\Build\FolderSplitter\FolderSplitter\bin\Release\FolderSplitter.pdb
+C:\Build\FolderSplitter\FolderSplitter\obj\Release\FolderSplitter.FormMain.resources
+C:\Build\FolderSplitter\FolderSplitter\obj\Release\FolderSplitter.csproj.GenerateResource.Cache
+C:\Build\FolderSplitter\FolderSplitter\obj\Release\FolderSplitter.exe
+C:\Build\FolderSplitter\FolderSplitter\obj\Release\FolderSplitter.pdb
