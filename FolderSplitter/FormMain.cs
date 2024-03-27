@@ -18,7 +18,7 @@ namespace FolderSplitter
             numericUpDown1_ValueChanged(this, new EventArgs());
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        void button1_Click(object sender, EventArgs e)
         {
             folderBrowserDialog1.SelectedPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             DialogResult result = folderBrowserDialog1.ShowDialog();
@@ -34,7 +34,7 @@ namespace FolderSplitter
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        void button2_Click(object sender, EventArgs e)
         {
             folderBrowserDialog2.SelectedPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             DialogResult result = folderBrowserDialog2.ShowDialog();
@@ -45,24 +45,20 @@ namespace FolderSplitter
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        void button3_Click(object sender, EventArgs e)
         {
             if (Directory.Exists(folderStart))
             {
-                button1.Enabled = false;
-                button2.Enabled = false;
-                button3.Enabled = false;
+                enableDisable(false);
                 folderDest = folderDestFunction();
                 searchAllForders(folderStart);
-                button1.Enabled = true;
-                button2.Enabled = true;
-                button3.Enabled = true;
+                enableDisable(true);
                 sizeFilesInFilder = 0;
                 numberFolder = 1;
             }
         }
 
-        private void searchAllForders(string startLocation)
+        void searchAllForders(string startLocation)
         {
             if (Directory.Exists(startLocation))
             {
@@ -74,7 +70,7 @@ namespace FolderSplitter
             }
         }
 
-        private void moveFiles(string PathScan)
+        void moveFiles(string PathScan)
         {
             string dirName = PathScan.Remove(0, folderStart.Length);
             foreach (var line in Directory.EnumerateFiles(PathScan))
@@ -110,15 +106,22 @@ namespace FolderSplitter
             }
         }
 
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
             label4.Text = (numericUpDown1.Value / 1024 / 1024).ToString("F") + " MB";
             label5.Text = (numericUpDown1.Value / 1024 / 1024 / 1024).ToString("F") + " GB";
         }
 
-        private string folderDestFunction()
+        string folderDestFunction()
         {
             return Path.Combine(folderBrowserDialog2.SelectedPath, startDirectoryName, "_", numberFolder.ToString());
+        }
+
+        void enableDisable(bool enable)
+        {
+            button1.Enabled = enable;
+            button2.Enabled = enable;
+            button3.Enabled = enable;
         }
     }
 }
